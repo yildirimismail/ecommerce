@@ -60,6 +60,7 @@ public class ShoppingCart {
                                     throw new Exception();
                                 }
                             } catch (Exception e) {
+                                throw new NullPointerException();
                                 // Return Some Response Discount Type Couldn't Find
                             }
                         }

@@ -25,6 +25,8 @@ public class ShoppingCard_ApplyCampaignTest {
         Product product2 = new Product("pine", 30.0, categoryTest);
         shoppingCart.addItem(product, quantity);
         shoppingCart.addItem(product2, quantity);
+        // min bought count achieved
+
         Assert.assertEquals(quantity, shoppingCart.getProductList().get(product));
         Campaign campaign = new Campaign(category, DiscountTypeView.AMOUNT, 10.0, 2);
         List<Campaign> campaigns = new ArrayList<>();
@@ -66,8 +68,27 @@ public class ShoppingCard_ApplyCampaignTest {
         shoppingCart.addItem(product, quantity);
         shoppingCart.addItem(product2, quantity);
         Assert.assertEquals(quantity, shoppingCart.getProductList().get(product));
-        // min bought count not achieved
         Campaign campaign = new Campaign(categoryNone, DiscountTypeView.AMOUNT, 10.0, 5);
+        List<Campaign> campaigns = new ArrayList<>();
+        campaigns.add(campaign);
+        shoppingCart.appylyDiscounts(campaigns);
+        Double actualValue = shoppingCart.getCampaignDiscount();
+        Double exceptedValue = 0d;
+        Assert.assertEquals(exceptedValue, actualValue);
+    }
+
+    @Test()
+    public void applyCouponDifferentDiscountType() {
+        Integer quantity = 3;
+        Category category = new Category("fruit", null);
+        Category categoryNone = new Category("none", null);
+        Category categoryTest = new Category("test", null);
+        Product product = new Product("apple", 30.0, category);
+        Product product2 = new Product("pine", 30.0, categoryTest);
+        shoppingCart.addItem(product, quantity);
+        shoppingCart.addItem(product2, quantity);
+        Assert.assertEquals(quantity, shoppingCart.getProductList().get(product));
+        Campaign campaign = new Campaign(categoryNone, DiscountTypeView.FREE_DELIVERY, 10.0, 5);
         List<Campaign> campaigns = new ArrayList<>();
         campaigns.add(campaign);
         shoppingCart.appylyDiscounts(campaigns);

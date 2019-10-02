@@ -3,7 +3,8 @@ package util;
 public enum DiscountType implements IValueEnum{
 
     RATE(1),
-    AMOUNT(2);
+    AMOUNT(2),
+    FREE_DELIVERY(2);
 
     private final Integer value;
 

@@ -2,7 +2,8 @@ package util;
 
 public enum DiscountTypeView implements ITextEnum {
     RATE(DiscountType.RATE, "RATE"),
-    AMOUNT(DiscountType.AMOUNT, "AMOUNT");
+    AMOUNT(DiscountType.AMOUNT, "AMOUNT"),
+    FREE_DELIVERY(DiscountType.FREE_DELIVERY, "FREE_DELIVERY");
 
     private String text;
     private DiscountType actualEnum;
