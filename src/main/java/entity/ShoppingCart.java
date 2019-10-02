@@ -60,7 +60,7 @@ public class ShoppingCart {
                                     throw new Exception();
                                 }
                             } catch (Exception e) {
-                                // Return Some Response
+                                // Return Some Response Discount Type Couldn't Find
                             }
                         }
                 }
